@@ -1,5 +1,4 @@
-package com.example.homework_jc.di
-
+package com.example.myproject_compose.ui.theme.data.modul
 import com.example.myproject_compose.ui.theme.character.CharacterDetailViewModel
 import com.example.myproject_compose.ui.theme.character.CharactersViewModel
 import com.example.myproject_compose.ui.theme.data.api.ApiService

@@ -2,7 +2,7 @@ package com.example.myproject_compose.ui.theme.episode
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.homework_jc.data.model.Episode
+import com.example.myproject_compose.ui.theme.data.model.Episode
 import com.example.myproject_compose.ui.theme.repasitory.EpisodesRepository
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow

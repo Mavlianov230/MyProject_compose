@@ -7,7 +7,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import com.example.homework_jc.data.model.Episode
+import com.example.myproject_compose.ui.theme.data.model.Episode
 
 @Composable
 fun EpisodeCard(episode: Episode) {

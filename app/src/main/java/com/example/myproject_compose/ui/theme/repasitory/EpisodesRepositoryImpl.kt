@@ -1,8 +1,8 @@
 package com.example.myproject_compose.ui.theme.repasitory
 
 import android.util.Log
-import com.example.homework_jc.data.model.Episode
 import com.example.myproject_compose.ui.theme.data.api.ApiService
+import com.example.myproject_compose.ui.theme.data.model.Episode
 
 class EpisodesRepositoryImpl(private val apiService: ApiService) : EpisodesRepository {
     private var currentPage = 1

@@ -1,9 +1,9 @@
 package com.example.myproject_compose.ui.theme.repasitory
 
 import android.util.Log
-import com.example.homework_jc.data.model.EpisodeResponse
 import com.example.myproject_compose.ui.theme.data.api.ApiService
 import com.example.myproject_compose.ui.theme.data.model.CharacterResponse
+import com.example.myproject_compose.ui.theme.data.model.EpisodeResponse
 import com.example.myproject_compose.ui.theme.data.model.LocationResponse
 import retrofit2.Response
 

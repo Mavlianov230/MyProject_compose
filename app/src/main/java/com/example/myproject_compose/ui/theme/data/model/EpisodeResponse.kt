@@ -1,4 +1,4 @@
-package com.example.homework_jc.data.model
+package com.example.myproject_compose.ui.theme.data.model
 
 import com.google.gson.annotations.SerializedName
 
