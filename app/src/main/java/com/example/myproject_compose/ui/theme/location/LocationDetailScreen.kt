@@ -9,10 +9,12 @@ import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavController
 import org.koin.androidx.compose.koinViewModel
+import com.example.myproject_compose.ui.theme.data.appBar.AppTopBar
 
 @Composable
-fun LocationDetailScreen(locationId: Int) {
+fun LocationDetailScreen(navController: NavController, locationId: Int) {
     val viewModel: LocationDetailViewModel = koinViewModel()
     val location = viewModel.location.collectAsState()
 
@@ -21,12 +23,24 @@ fun LocationDetailScreen(locationId: Int) {
     }
 
     location.value?.let { location ->
-        Column(modifier = Modifier.padding(16.dp)) {
-            Text(text = "Name: ${location.name}", style = MaterialTheme.typography.bodyMedium)
-            Text(text = "Type: ${location.type}", style = MaterialTheme.typography.bodyMedium)
-            Text(text = "Dimension: ${location.dimension}", style = MaterialTheme.typography.bodyMedium)
+        Column {
+            AppTopBar(
+                navController = navController,
+                title = location.name,
+                canNavigateBack = true
+            )
+            Column(modifier = Modifier.padding(16.dp)) {
+                Text(text = "Name: ${location.name}", style = MaterialTheme.typography.bodyMedium)
+                Text(text = "Type: ${location.type}", style = MaterialTheme.typography.bodyMedium)
+                Text(text = "Dimension: ${location.dimension}", style = MaterialTheme.typography.bodyMedium)
+            }
         }
     } ?: run {
+        AppTopBar(
+            navController = navController,
+            title = "Loading...",
+            canNavigateBack = true
+        )
         Text(text = "Loading...", style = MaterialTheme.typography.bodyMedium)
     }
 }

@@ -52,7 +52,11 @@ android {
 
 dependencies {
 
+
     //animation
+    implementation(libs.accompanist.navigation.material)
+    implementation (libs.accompanist.swiperefresh)
+
     implementation(libs.accompanist.navigation.animation)
     //paging3
     implementation(libs.androidx.paging.runtime.ktx)

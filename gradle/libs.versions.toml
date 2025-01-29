@@ -1,5 +1,7 @@
 [versions]
 accompanistNavigationAnimation = "0.32.0"
+accompanistNavigationMaterial = "0.31.3-beta"
+accompanistSwiperefresh = "0.23.1"
 agp = "8.8.0"
 coilCompose = "2.4.0"
 converterGson = "2.11.0"
@@ -26,6 +28,8 @@ roomKtxVersion = "2.6.1"
 
 [libraries]
 accompanist-navigation-animation = { module = "com.google.accompanist:accompanist-navigation-animation", version.ref = "accompanistNavigationAnimation" }
+accompanist-navigation-material = { module = "com.google.accompanist:accompanist-navigation-material", version.ref = "accompanistNavigationMaterial" }
+accompanist-swiperefresh = { module = "com.google.accompanist:accompanist-swiperefresh", version.ref = "accompanistSwiperefresh" }
 androidx-compose-material3-material3 = { module = "androidx.compose.material3:material3", version.ref = "material3Version" }
 androidx-hilt-navigation-compose = { module = "androidx.hilt:hilt-navigation-compose", version.ref = "hiltNavigationCompose" }
 androidx-lifecycle-viewmodel-ktx = { module = "androidx.lifecycle:lifecycle-viewmodel-ktx", version.ref = "lifecycleRuntimeKtx" }

@@ -1,5 +1,7 @@
 package com.example.myproject_compose.ui.theme.data.appBar
 
+import androidx.compose.animation.core.animateFloatAsState
+import androidx.compose.foundation.layout.size
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.List
 import androidx.compose.material.icons.filled.LocationOn
@@ -10,6 +12,10 @@ import androidx.compose.material3.NavigationBar
 import androidx.compose.material3.NavigationBarItem
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 
 @Composable
@@ -17,50 +23,46 @@ fun AppBottomBar(
     navController: NavController,
 ) {
     NavigationBar {
-        NavigationBarItem(
-            icon = { Icon(Icons.Filled.Person, contentDescription = "Characters") },
-            label = { Text("Characters") },
-            selected = navController.currentBackStackEntry?.destination?.route == "characters",
-            onClick = {
-                navController.navigate("characters") {
-                    popUpTo("characters") { inclusive = true }
-                    launchSingleTop = true
-                }
-            }
+        val currentRoute = navController.currentBackStackEntry?.destination?.route
+
+        val items = listOf(
+            BottomBarItem("Characters", "characters", Icons.Filled.Person),
+            BottomBarItem("Locations", "locations", Icons.Filled.LocationOn),
+            BottomBarItem("Episodes", "episodes", Icons.Filled.List),
+            BottomBarItem("Favorites", "favorites", Icons.Filled.Star)
         )
-        NavigationBarItem(
-            icon = { Icon(Icons.Filled.LocationOn, contentDescription = "Locations") },
-            label = { Text("Locations") },
-            selected = navController.currentBackStackEntry?.destination?.route == "locations",
-            onClick = {
-                navController.navigate("locations") {
-                    popUpTo("locations") { inclusive = true }
-                    launchSingleTop = true
-                }
-            }
-        )
-        NavigationBarItem(
-            icon = { Icon(Icons.Filled.List, contentDescription = "Episodes") },
-            label = { Text("Episodes") },
-            selected = navController.currentBackStackEntry?.destination?.route == "episodes",
-            onClick = {
-                if (navController.currentBackStackEntry?.destination?.route != "episodes") {
-                    navController.navigate("episodes") {
-                        popUpTo("episodes") { inclusive = true }
-                        launchSingleTop = true
+
+        items.forEach { item ->
+            val isSelected = currentRoute == item.route
+            val iconSize by animateFloatAsState(
+                targetValue = if (isSelected) 32f else 24f
+            )
+
+            NavigationBarItem(
+                icon = {
+                    Icon(
+                        imageVector = item.icon,
+                        contentDescription = item.label,
+                        modifier = Modifier.size(iconSize.dp)
+                    )
+                },
+                label = { Text(item.label) },
+                selected = isSelected,
+                onClick = {
+                    if (currentRoute != item.route) {
+                        navController.navigate(item.route) {
+                            popUpTo(item.route) { inclusive = true }
+                            launchSingleTop = true
+                        }
                     }
                 }
-            }
-        )
-        NavigationBarItem(
-            icon = { Icon(Icons.Filled.Star, contentDescription = "Favorites") },
-            label = { Text("Favorites") },
-            selected = navController.currentBackStackEntry?.destination?.route == "favorites",
-            onClick = {
-                navController.navigate("favorites") {
-                    launchSingleTop = true
-                }
-            }
-        )
+            )
+        }
     }
 }
+
+data class BottomBarItem(
+    val label: String,
+    val route: String,
+    val icon: ImageVector
+)
