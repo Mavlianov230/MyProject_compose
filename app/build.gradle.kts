@@ -52,6 +52,8 @@ android {
 
 dependencies {
 
+    implementation( libs.androidx.compose.ui.ui3 )
+    implementation (libs.androidx.compose.foundation.foundation2)
 
     //animation
     implementation(libs.accompanist.navigation.material)

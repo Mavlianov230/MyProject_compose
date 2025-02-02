@@ -1,8 +1,8 @@
 package com.example.myproject_compose.ui.theme.data.api
 
-import com.example.myproject_compose.ui.theme.data.model.CharacterResponse
-import com.example.myproject_compose.ui.theme.data.model.EpisodeResponse
-import com.example.myproject_compose.ui.theme.data.model.LocationResponse
+import com.example.myproject_compose.ui.theme.App.Response.CharacterResponse
+import com.example.myproject_compose.ui.theme.App.Response.EpisodeResponse
+import com.example.myproject_compose.ui.theme.App.Response.LocationResponse
 import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Query
